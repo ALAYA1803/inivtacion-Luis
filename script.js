@@ -19,7 +19,7 @@
 // ⚠️ Reemplaza esta URL con la URL de tu Web App de Google Apps Script.
 // Si dejas "TU_URL_DE_APPS_SCRIPT_AQUI", la página funcionará en MODO DEMO,
 // permitiéndote probar toda la interfaz y el confeti sin errores.
-const GOOGLE_SCRIPT_URL = "TU_URL_DE_APPS_SCRIPT_AQUI";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIVxztodUv_VbeOSFnKWV5XD4eNwHS_HcG9spqpQR0eVRuGremdAXQOp0vQcDdpCPg/exec";
 
 // Fecha y hora del evento: Miércoles 18 de Noviembre de 2026 a las 4:00 PM (Hora de Lima / UTC-5)
 const EVENT_CONFIG = {
