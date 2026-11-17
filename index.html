@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Cumpleaños de Luchito! 🍻 Brindemos juntos</title>
+  
+  <!-- SEO & OpenGraph Meta Tags para compartir en WhatsApp, Facebook, etc. -->
+  <meta name="description" content="Invitación y confirmación de asistencia para el cumpleaños de Luchito. Miércoles 18 de Noviembre, 4:00 PM. ¡Te espero para brindar!">
+  <meta property="og:title" content="¡Cumpleaños de Luchito! 🍻 Brindemos juntos">
+  <meta property="og:description" content="Miércoles 18 de Noviembre, 4:00 PM. C. Bernardo de O'Higgins 125, Pueblo Libre. ¡Confirma tu asistencia!">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+  <meta name="theme-color" content="#121212">
+
+  <!-- Favicon temático SVG cervecero -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍻</text></svg>">
+
+  <!-- Google Fonts: Lilita One (Display Títulos), Playfair Display (Serif Elegante), Outfit (Textos limpios) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Estilos principales (Ruta relativa para GitHub Pages) -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Contenedor de burbujas flotantes animadas en el fondo -->
+  <div class="bubbles-bg" id="bubblesContainer" aria-hidden="true"></div>
+
+  <!-- Barra superior sutil de navegación rápida y sonido -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="nav-icon">🍻</span>
+      <span class="nav-text">LUCHITO'S B-DAY</span>
+    </div>
+    <div class="nav-actions">
+      <a href="#rsvp" class="nav-link-rsvp">Confirmar RSVP</a>
+      <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Efecto de sonido de brindis" title="¡Haz clic para brindar!">
+        <span class="sound-icon">🔔</span>
+        <span class="sound-label">¡Salud!</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- ==============================================
+         1. HERO SECTION: LA TARJETA DE INVITACIÓN EXACTA
+         ============================================== -->
+    <section class="hero-section" id="invitacion">
+      <div class="invitation-card vintage-chalkboard" id="invitationCard">
+        
+        <!-- Marco decorativo vintage con esquinas redondeadas invertidas y destellos -->
+        <div class="vintage-frame" aria-hidden="true">
+          <!-- Esquina superior izquierda -->
+          <svg class="corner-svg corner-tl" viewBox="0 0 44 44">
+            <path d="M 44,0 A 44,44 0 0 1 0,44" fill="none" stroke="#F5EFE6" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <!-- Esquina superior derecha con burbujas decorativas -->
+          <svg class="corner-svg corner-tr" viewBox="0 0 44 44">
+            <path d="M 0,0 A 44,44 0 0 0 44,44" fill="none" stroke="#F5EFE6" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <!-- Esquina inferior derecha con destello -->
+          <svg class="corner-svg corner-br" viewBox="0 0 44 44">
+            <path d="M 44,0 A 44,44 0 0 1 0,44" fill="none" stroke="#F5EFE6" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <!-- Esquina inferior izquierda con destello -->
+          <svg class="corner-svg corner-bl" viewBox="0 0 44 44">
+            <path d="M 0,0 A 44,44 0 0 0 44,44" fill="none" stroke="#F5EFE6" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+
+          <!-- Líneas perimetrales del marco -->
+          <div class="frame-line line-top"></div>
+          <div class="frame-line line-right"></div>
+          <div class="frame-line line-bottom"></div>
+          <div class="frame-line line-left"></div>
+
+          <!-- Acentos de burbujas y destellos decorativos perimetrales (Fieles a la imagen) -->
+          <div class="decor-accent decor-top-right">
+            <span class="sparkle sparkle-sm gold">✦</span>
+            <span class="bubble bubble-xs"></span>
+            <span class="bubble bubble-sm"></span>
+            <span class="bubble bubble-md"></span>
+          </div>
+          <div class="decor-accent decor-mid-left">
+            <span class="sparkle sparkle-sm cream">✦</span>
+            <span class="bubble bubble-sm"></span>
+            <span class="bubble bubble-md"></span>
+          </div>
+          <div class="decor-accent decor-mid-right">
+            <span class="bubble bubble-md"></span>
+            <span class="sparkle sparkle-md gold">✦</span>
+            <span class="bubble bubble-xs"></span>
+          </div>
+          <div class="decor-accent decor-bottom-left">
+            <span class="bubble bubble-xs"></span>
+            <span class="sparkle sparkle-md gold">✦</span>
+            <span class="bubble bubble-sm"></span>
+          </div>
+          <div class="decor-accent decor-bottom-right">
+            <span class="sparkle sparkle-sm cream">✦</span>
+            <span class="bubble bubble-sm"></span>
+            <span class="bubble bubble-xs"></span>
+          </div>
+        </div>
+
+        <!-- Contenido Central de la Tarjeta -->
+        <div class="card-content">
+
+          <!-- Encabezado Serif Clásico -->
+          <p class="hero-subtitle">Brindemos por el cumple de</p>
+
+          <!-- Título Display Masivo "LUCHITO" -->
+          <h1 class="hero-title">LUCHITO</h1>
+
+          <!-- Ilustración SVG interactiva de las dos jarras brindando -->
+          <div class="beer-illustration-container" id="beerToastBtn" role="button" tabindex="0" title="¡Haz clic o toca las jarras para brindar!" aria-label="Ilustración de jarras de cerveza brindando">
+            <svg class="beer-svg" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Gradiente dorado de la cerveza -->
+                <linearGradient id="beerGold" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#C59B32" />
+                  <stop offset="50%" stop-color="#AF8C29" />
+                  <stop offset="100%" stop-color="#8F711C" />
+                </linearGradient>
+                <!-- Gradiente de espuma cremosa -->
+                <linearGradient id="foamCream" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#FFFFFF" />
+                  <stop offset="70%" stop-color="#FAF5EC" />
+                  <stop offset="100%" stop-color="#EAE0D0" />
+                </linearGradient>
+                <!-- Sombra suave para la base -->
+                <filter id="toastGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <!-- Destellos y burbujas centrales del choque -->
+              <g class="clink-sparkles">
+                <!-- Chispas doradas centrales -->
+                <path d="M 210,105 L 213,116 L 224,119 L 213,122 L 210,133 L 207,122 L 196,119 L 207,116 Z" fill="#F5EFE6" />
+                <path d="M 210,80 L 212,87 L 219,89 L 212,91 L 210,98 L 208,91 L 201,89 L 208,87 Z" fill="#B59436" />
+                <path d="M 175,100 L 176,104 L 180,105 L 176,106 L 175,110 L 174,106 L 170,105 L 174,104 Z" fill="#F5EFE6" />
+                <path d="M 245,102 L 246,106 L 250,107 L 246,108 L 245,112 L 244,108 L 240,107 L 244,106 Z" fill="#B59436" />
+
+                <!-- Gotitas de espuma saltando -->
+                <circle cx="210" cy="72" r="3.5" fill="#FFFFFF" />
+                <circle cx="198" cy="85" r="2.5" fill="#FAF5EC" />
+                <circle cx="222" cy="86" r="3" fill="#FFFFFF" />
+                <circle cx="186" cy="115" r="2" fill="#FFFFFF" />
+                <circle cx="234" cy="118" r="2.5" fill="#FAF5EC" />
+              </g>
+
+              <!-- JARRA IZQUIERDA (Inclinada hacia la derecha) -->
+              <g class="mug-group mug-left" transform="translate(150, 185) rotate(13) translate(-150, -185)">
+                <!-- Asa de la jarra izquierda -->
+                <path d="M 102,150 C 65,150 60,215 102,225" fill="none" stroke="#F5EFE6" stroke-width="16" stroke-linecap="round"/>
+                <path d="M 102,150 C 65,150 60,215 102,225" fill="none" stroke="#121212" stroke-width="6" stroke-linecap="round"/>
+
+                <!-- Cuerpo de vidrio de la jarra -->
+                <path d="M 100,135 L 185,135 L 172,250 C 172,256 166,260 160,260 L 125,260 C 119,260 113,256 113,250 Z" 
+                      fill="url(#beerGold)" stroke="#F5EFE6" stroke-width="8" stroke-linejoin="round"/>
+
+                <!-- Base gruesa de vidrio -->
+                <path d="M 111,250 L 174,250 L 171,262 C 171,265 167,267 162,267 L 123,267 C 118,267 114,265 114,262 Z" 
+                      fill="#E2DAC9" stroke="#121212" stroke-width="2"/>
+
+                <!-- Costillas / Líneas verticales oscuras del tarro cervecero -->
+                <path d="M 124,142 L 128,245" stroke="#181818" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+                <path d="M 142,142 L 142,246" stroke="#181818" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+                <path d="M 160,142 L 156,245" stroke="#181818" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+
+                <!-- Reflejo blanco de brillo en el vidrio -->
+                <path d="M 112,148 L 115,238" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+                <!-- Burbujas internas subiendo en la cerveza -->
+                <circle cx="134" cy="225" r="3" fill="#FFFFFF" opacity="0.75"/>
+                <circle cx="150" cy="205" r="2.5" fill="#FFFFFF" opacity="0.8"/>
+                <circle cx="128" cy="180" r="3.5" fill="#FFFFFF" opacity="0.7"/>
+                <circle cx="146" cy="160" r="2" fill="#FFFFFF" opacity="0.85"/>
+
+                <!-- Espuma abundante y cremosa superior de la jarra izquierda -->
+                <g class="foam-crown">
+                  <path d="M 94,142 
+                           C 88,128 100,110 116,115 
+                           C 122,100 144,98 152,112 
+                           C 162,102 182,106 186,122 
+                           C 194,124 196,140 188,148 
+                           C 180,152 172,145 166,146 
+                           C 158,150 148,145 140,147 
+                           C 130,150 118,144 110,148 
+                           C 102,150 94,148 94,142 Z" 
+                        fill="url(#foamCream)" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+                  
+                  <!-- Delineado interior suave de espuma -->
+                  <path d="M 104,132 C 114,124 126,128 132,122 C 142,116 156,118 168,126" 
+                        fill="none" stroke="#D8CEBD" stroke-width="3" stroke-linecap="round"/>
+                </g>
+              </g>
+
+              <!-- JARRA DERECHA (Inclinada hacia la izquierda para brindar) -->
+              <g class="mug-group mug-right" transform="translate(270, 185) rotate(-13) translate(-270, -185)">
+                <!-- Asa de la jarra derecha -->
+                <path d="M 318,150 C 355,150 360,215 318,225" fill="none" stroke="#F5EFE6" stroke-width="16" stroke-linecap="round"/>
+                <path d="M 318,150 C 355,150 360,215 318,225" fill="none" stroke="#121212" stroke-width="6" stroke-linecap="round"/>
+
+                <!-- Cuerpo de vidrio de la jarra -->
+                <path d="M 235,135 L 320,135 L 307,250 C 307,256 301,260 295,260 L 260,260 C 254,260 248,256 248,250 Z" 
+                      fill="url(#beerGold)" stroke="#F5EFE6" stroke-width="8" stroke-linejoin="round"/>
+
+                <!-- Base gruesa de vidrio -->
+                <path d="M 246,250 L 309,250 L 306,262 C 306,265 302,267 297,267 L 258,267 C 253,267 249,265 249,262 Z" 
+                      fill="#E2DAC9" stroke="#121212" stroke-width="2"/>
+
+                <!-- Costillas / Líneas verticales oscuras del tarro cervecero -->
+                <path d="M 260,142 L 264,245" stroke="#181818" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+                <path d="M 278,142 L 278,246" stroke="#181818" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+                <path d="M 296,142 L 292,245" stroke="#181818" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+
+                <!-- Reflejo blanco de brillo en el vidrio -->
+                <path d="M 248,148 L 251,238" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+                <!-- Burbujas internas subiendo en la cerveza -->
+                <circle cx="270" cy="225" r="3" fill="#FFFFFF" opacity="0.75"/>
+                <circle cx="286" cy="205" r="2.5" fill="#FFFFFF" opacity="0.8"/>
+                <circle cx="264" cy="180" r="3.5" fill="#FFFFFF" opacity="0.7"/>
+                <circle cx="282" cy="160" r="2" fill="#FFFFFF" opacity="0.85"/>
+
+                <!-- Espuma abundante y cremosa superior de la jarra derecha -->
+                <g class="foam-crown">
+                  <path d="M 230,148 
+                           C 224,136 226,122 238,118 
+                           C 244,104 264,100 274,112 
+                           C 284,98 304,102 310,118 
+                           C 324,114 332,130 326,144 
+                           C 320,150 312,146 304,148 
+                           C 296,146 288,150 280,146 
+                           C 270,148 260,144 252,148 
+                           C 244,146 236,152 230,148 Z" 
+                        fill="url(#foamCream)" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+
+                  <!-- Delineado interior suave de espuma -->
+                  <path d="M 248,128 C 258,120 272,122 284,116 C 294,122 306,122 316,132" 
+                        fill="none" stroke="#D8CEBD" stroke-width="3" stroke-linecap="round"/>
+                </g>
+              </g>
+            </svg>
+            <div class="toast-hint">¡Toca las jarras para brindar! 🍻</div>
+          </div>
+
+          <!-- ==============================================
+               BLOQUE DE FECHA Y HORA (DISEÑO 2x2 EXACTO)
+               ============================================== -->
+          <div class="datetime-grid">
+            <!-- Fila 1: Caja dorada [MIERCOLES] y texto "4:00 PM" -->
+            <div class="grid-item">
+              <div class="date-gold-badge">MIERCOLES</div>
+            </div>
+            <div class="grid-item time-display">
+              <span>4:00 PM</span>
+            </div>
+
+            <!-- Fila 2: Número gigante "18" y Caja dorada [NOVIEMBRE] -->
+            <div class="grid-item day-display">
+              <span>18</span>
+            </div>
+            <div class="grid-item">
+              <div class="date-gold-badge">NOVIEMBRE</div>
+            </div>
+          </div>
+
+          <!-- Dirección visible -->
+          <div class="venue-address-block">
+            <p class="address-text">C. Bernardo de O'Higgins 125, Pueblo Libre</p>
+          </div>
+
+          <!-- Botón Principal "Confirmar Asistencia" estilo píldora de la imagen -->
+          <div class="hero-cta-wrapper">
+            <a href="#rsvp" class="btn-hero-pill" id="heroRsvpBtn">
+              <span class="btn-icon">
+                <!-- Icono de calendario con check -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="3" ry="3"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                  <path d="m9 16 2 2 4-4"></path>
+                </svg>
+              </span>
+              <span class="btn-text">CONFIRMAR ASISTENCIA</span>
+            </a>
+          </div>
+
+          <!-- Mensaje de cierre de la tarjeta -->
+          <p class="hero-farewell">¡Te espero!</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         2. CONTADOR REGRESIVO INTERACTIVO
+         ============================================== -->
+    <section class="countdown-section">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-sparkle">✦</span>
+          CUENTA REGRESIVA
+          <span class="title-sparkle">✦</span>
+        </h2>
+        <p class="section-desc">Enfriando las cervezas para el gran día...</p>
+
+        <div class="countdown-grid" id="countdownClock">
+          <div class="countdown-box">
+            <span class="count-number" id="daysVal">--</span>
+            <span class="count-label">DÍAS</span>
+          </div>
+          <div class="countdown-box">
+            <span class="count-number" id="hoursVal">--</span>
+            <span class="count-label">HORAS</span>
+          </div>
+          <div class="countdown-box">
+            <span class="count-number" id="minutesVal">--</span>
+            <span class="count-label">MINUTOS</span>
+          </div>
+          <div class="countdown-box">
+            <span class="count-number" id="secondsVal">--</span>
+            <span class="count-label">SEGUNDOS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         3. UBICACIÓN Y MAPA INTERACTIVO
+         ============================================== -->
+    <section class="location-section" id="ubicacion">
+      <div class="section-container">
+        <div class="location-card glass-panel">
+          <div class="location-header">
+            <div class="location-badge">📍 UBICACIÓN DEL EVENTO</div>
+            <h2 class="location-title">¿CÓMO LLEGAR?</h2>
+            <p class="location-address">
+              <strong>C. Bernardo de O'Higgins 125</strong>, Pueblo Libre, Lima - Perú
+            </p>
+          </div>
+
+          <!-- Botones de Acción para Mapas -->
+          <div class="location-actions">
+            <!-- Botón directo a Google Maps -->
+            <a href="https://maps.app.goo.gl/nE8yuqM2n8inwzYq9" target="_blank" rel="noopener noreferrer" class="btn-map btn-google-maps">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                <line x1="9" y1="3" x2="9" y2="18"></line>
+                <line x1="15" y1="6" x2="15" y2="21"></line>
+              </svg>
+              <span>Abrir en Google Maps</span>
+            </a>
+
+            <!-- Botón Copiar Dirección -->
+            <button id="copyAddressBtn" class="btn-map btn-copy-address" title="Copiar dirección exacta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copyBtnText">Copiar Dirección</span>
+            </button>
+          </div>
+
+          <!-- Mapa interactivo integrado -->
+          <div class="map-embed-wrapper">
+            <iframe 
+              title="Mapa de ubicación del cumpleaños de Luchito"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.658739194297!2d-77.06734182414777!3d-12.06742514227318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8e312518e95%3A0x6b701d6706e5bb48!2sC.%20Bernardo%20O&#39;Higgins%20125%2C%20Pueblo%20Libre%2015084!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe" 
+              width="100%" 
+              height="300" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         4. FORMULARIO DE CONFIRMACIÓN DE ASISTENCIA (RSVP)
+         ============================================== -->
+    <section class="rsvp-section" id="rsvp">
+      <div class="section-container">
+        <div class="rsvp-card glass-panel">
+          
+          <div class="rsvp-header">
+            <div class="rsvp-badge">CONFIRMACIÓN</div>
+            <h2 class="rsvp-title">¿NOS ACOMPAÑAS?</h2>
+            <p class="rsvp-subtitle">
+              Por favor confirma tu asistencia para calcular la comida, las bebidas y asegurar tu jarra bien helada 🍻
+            </p>
+          </div>
+
+          <form id="rsvpForm" class="rsvp-form" novalidate>
+
+            <!-- Campo 1: Nombre y Apellido -->
+            <div class="form-group">
+              <label for="guestName" class="form-label">
+                <span>Tu Nombre y Apellido</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="guestName" 
+                  name="nombre" 
+                  class="form-input" 
+                  placeholder="Ej. Carlos Mendoza" 
+                  required 
+                  autocomplete="name"
+                >
+              </div>
+              <p class="field-error" id="nameError">Por favor escribe tu nombre y apellido.</p>
+            </div>
+
+            <!-- Campo 2: ¿Asistirás? (Selector visual tipo tarjetas interactivas) -->
+            <div class="form-group">
+              <label class="form-label">
+                <span>¿Asistirás a la celebración?</span>
+                <span class="required-star">*</span>
+              </label>
+              
+              <div class="attendance-options" role="radiogroup" aria-label="Selección de asistencia">
+                <!-- Opción SI -->
+                <label class="attendance-card active" id="optionYesCard">
+                  <input type="radio" name="asistencia" value="SI" checked class="sr-only">
+                  <div class="card-radio-icon">✓</div>
+                  <div class="card-radio-content">
+                    <span class="card-radio-title">¡Obvio, ahí estaré! 🍻</span>
+                    <span class="card-radio-desc">Cuenta conmigo para brindar y celebrar</span>
+                  </div>
+                </label>
+
+                <!-- Opción NO -->
+                <label class="attendance-card" id="optionNoCard">
+                  <input type="radio" name="asistencia" value="NO" class="sr-only">
+                  <div class="card-radio-icon">✕</div>
+                  <div class="card-radio-content">
+                    <span class="card-radio-title">No podré ir 😢</span>
+                    <span class="card-radio-desc">Me dará mucha pena perdérmelo</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Campo 3: Cantidad de personas (Interactivo 1 al 5, condicional) -->
+            <div class="form-group" id="guestsCountGroup">
+              <label class="form-label" for="guestsCountInput">
+                <span>¿Cuántas personas asistirán en total contigo?</span>
+              </label>
+              <div class="counter-stepper-wrapper">
+                <button type="button" class="stepper-btn" id="btnMinusGuest" aria-label="Disminuir cantidad">
+                  <span aria-hidden="true">−</span>
+                </button>
+                <div class="stepper-display">
+                  <input type="number" id="guestsCountInput" name="cantidadPersonas" value="1" min="1" max="5" readonly class="stepper-input">
+                  <span class="stepper-unit" id="stepperUnitText">persona</span>
+                </div>
+                <button type="button" class="stepper-btn" id="btnPlusGuest" aria-label="Aumentar cantidad">
+                  <span aria-hidden="true">+</span>
+                </button>
+              </div>
+              <p class="stepper-hint" id="stepperHint">1 lugar reservado para ti</p>
+            </div>
+
+            <!-- Campo 4: Mensaje o Canción Pedida -->
+            <div class="form-group">
+              <label for="guestMessage" class="form-label">
+                <span>Mensaje para Luchito o canción pedida 🎵</span>
+                <span class="optional-tag">(Opcional)</span>
+              </label>
+              <div class="input-wrapper">
+                <textarea 
+                  id="guestMessage" 
+                  name="mensaje" 
+                  class="form-textarea" 
+                  rows="3" 
+                  placeholder="Deja un saludo de cumpleaños para Luchito o recomienda la canción que debe sonar sí o sí..."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Botón de Envío Principal -->
+            <div class="form-submit-wrapper">
+              <button type="submit" class="btn-submit-rsvp" id="btnSubmitRsvp">
+                <span class="btn-spinner" id="btnSpinner" aria-hidden="true"></span>
+                <span class="btn-submit-icon" id="btnSubmitIcon">🍻</span>
+                <span class="btn-submit-label" id="btnSubmitLabel">CONFIRMAR ASISTENCIA</span>
+              </button>
+            </div>
+
+            <!-- Mensaje de estado/error -->
+            <div class="form-feedback" id="formFeedback" role="alert" style="display: none;"></div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================
+       5. MODAL DE ÉXITO CON CONFETI
+       ============================================== -->
+  <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <!-- Canvas de Confeti dorado -->
+    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+    <div class="modal-dialog vintage-modal">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">×</button>
+
+      <div class="modal-beer-icon">🍻</div>
+
+      <h3 class="modal-title" id="modalTitle">¡CONFIRMACIÓN RECIBIDA!</h3>
+
+      <p class="modal-message" id="modalMessage">
+        ¡Gracias por confirmar! Tus datos han sido registrados con éxito.
+      </p>
+
+      <div class="modal-event-summary">
+        <div class="summary-item">
+          <span class="summary-icon">📅</span>
+          <span>Miércoles 18 de Noviembre de 2026</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-icon">⏰</span>
+          <span>4:00 PM</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-icon">📍</span>
+          <span>C. Bernardo de O'Higgins 125, Pueblo Libre</span>
+        </div>
+      </div>
+
+      <!-- Botones de Acción Posterior -->
+      <div class="modal-actions">
+        <!-- Agregar a Google Calendar -->
+        <a id="btnGoogleCalendar" href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-action btn-calendar-google">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Agregar a Google Calendar</span>
+        </a>
+
+        <!-- Descargar archivo .ICS para Apple / Outlook -->
+        <button id="btnDownloadIcs" class="btn-modal-action btn-calendar-ics">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Descargar recordatorio (.ics)</span>
+        </button>
+
+        <!-- Compartir aviso por WhatsApp -->
+        <a id="btnWhatsAppShare" href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-action btn-whatsapp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.177.181-.076.355.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+          </svg>
+          <span>Avisarle a Luchito por WhatsApp</span>
+        </a>
+      </div>
+
+      <button class="btn-modal-done" id="modalDoneBtn">¡Listo, nos vemos allá!</button>
+    </div>
+  </div>
+
+  <!-- Toast flotante de notificación rápida -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite"></div>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-quote">"Las mejores historias se escriben con amigos y un buen brindis."</p>
+      <p class="footer-copy">Cumpleaños de <strong>LUCHITO</strong> • Miércoles 18 de Noviembre de 2026</p>
+      <a href="#invitacion" class="footer-top-link">↑ Volver arriba</a>
+    </div>
+  </footer>
+
+  <!-- Script interactivo (Ruta relativa para GitHub Pages) -->
+  <script src="./script.js"></script>
+</body>
+</html>

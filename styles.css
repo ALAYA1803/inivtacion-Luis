@@ -1,0 +1,1475 @@
+/* ==========================================================================
+   CUMPLEAÑOS DE LUCHITO - ESTILOS PRINCIPALES
+   Diseño UI/UX temático fiel a la invitación original con marco vintage,
+   textura pizarra/carbón, acentos dorados y cerveza espumante.
+   ========================================================================== */
+
+/* 1. VARIABLES Y SISTEMA DE DISEÑO */
+:root {
+  /* Paleta cromática exacta de la invitación */
+  --bg-primary: #121212;
+  --bg-secondary: #181818;
+  --bg-card: #151515;
+  --bg-glass: rgba(24, 24, 24, 0.85);
+  --bg-input: #1f1f1f;
+
+  /* Dorados cervecero y mostaza */
+  --gold-primary: #A68932;
+  --gold-light: #B59436;
+  --gold-dark: #876C23;
+  --gold-glow: rgba(181, 148, 54, 0.4);
+  --gold-gradient: linear-gradient(135deg, #C59B32 0%, #A68932 50%, #8A6E20 100%);
+
+  /* Tonos crema y blancos */
+  --cream-primary: #F5EFE6;
+  --cream-soft: #FAF5EE;
+  --cream-muted: #D8CEBD;
+  --text-muted: #9E9689;
+  --white: #FFFFFF;
+
+  /* Tipografías */
+  --font-display: 'Lilita One', cursive, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Sombras y transiciones */
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 6px 20px rgba(166, 137, 50, 0.35);
+  --shadow-glow: 0 0 25px rgba(181, 148, 54, 0.25);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset y caja */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-primary);
+  /* Textura de fondo estilo carbón / pizarra con iluminación radial tenue */
+  background-image: 
+    radial-gradient(circle at 50% 15%, #252422 0%, #151515 50%, #0d0d0d 100%),
+    radial-gradient(circle at 10% 80%, rgba(166, 137, 50, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--cream-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 2. BURBUJAS FLOTANTES DE FONDO (EFERVESCENCIA SUTIL) */
+.bubbles-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.float-bubble {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.7), rgba(181, 148, 54, 0.2) 60%, rgba(181, 148, 54, 0.05) 100%);
+  box-shadow: 0 0 6px rgba(181, 148, 54, 0.3);
+  opacity: 0.5;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* 3. NAVEGACIÓN SUPERIOR */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.5rem;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(245, 239, 230, 0.08);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  color: var(--cream-primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-link-rsvp {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(181, 148, 54, 0.3);
+  transition: var(--transition-fast);
+}
+
+.nav-link-rsvp:hover {
+  background: rgba(181, 148, 54, 0.15);
+  border-color: var(--gold-light);
+  color: var(--cream-primary);
+}
+
+.sound-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 239, 230, 0.15);
+  color: var(--cream-primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.sound-toggle-btn:hover {
+  background: rgba(181, 148, 54, 0.2);
+  border-color: var(--gold-light);
+  transform: scale(1.04);
+}
+
+/* 4. CONTENEDOR PRINCIPAL */
+.main-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ==========================================================================
+   5. SECCIÓN HERO: LA TARJETA VINTAGE IDÉNTICA A LA INVITACIÓN
+   ========================================================================== */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.invitation-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--bg-card);
+  /* Textura de pizarra y papel oscuro con gradiente */
+  background-image: 
+    radial-gradient(circle at 50% 20%, #201f1c 0%, #151413 60%, #0d0d0c 100%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  padding: 38px 24px 34px;
+  border-radius: 6px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 0 80px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.invitation-card:hover {
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.95),
+    0 0 40px rgba(181, 148, 54, 0.15);
+}
+
+/* MARCO VINTAGE CON ESQUINAS REDONDEADAS INVERTIDAS */
+.vintage-frame {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Esquinas SVGs con arco cóncavo (hacia adentro) */
+.corner-svg {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+}
+
+.corner-tl {
+  top: 0;
+  left: 0;
+}
+
+.corner-tr {
+  top: 0;
+  right: 0;
+}
+
+.corner-br {
+  bottom: 0;
+  right: 0;
+}
+
+.corner-bl {
+  bottom: 0;
+  left: 0;
+}
+
+/* Líneas perimetrales del marco crema */
+.frame-line {
+  position: absolute;
+  background-color: var(--cream-primary);
+  opacity: 0.95;
+}
+
+.line-top {
+  top: 0;
+  left: 44px;
+  right: 44px;
+  height: 2.5px;
+}
+
+.line-bottom {
+  bottom: 0;
+  left: 44px;
+  right: 44px;
+  height: 2.5px;
+}
+
+.line-left {
+  left: 0;
+  top: 44px;
+  bottom: 44px;
+  width: 2.5px;
+}
+
+.line-right {
+  right: 0;
+  top: 44px;
+  bottom: 44px;
+  width: 2.5px;
+}
+
+/* Acentos decorativos de burbujas y destellos idénticos al arte */
+.decor-accent {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.decor-top-right {
+  top: 12px;
+  right: 48px;
+}
+
+.decor-mid-left {
+  top: 38%;
+  left: 8px;
+}
+
+.decor-mid-right {
+  top: 55%;
+  right: 8px;
+}
+
+.decor-bottom-left {
+  bottom: 22px;
+  left: 14px;
+}
+
+.decor-bottom-right {
+  bottom: 28px;
+  right: 14px;
+}
+
+.sparkle {
+  font-size: 1.1rem;
+  line-height: 1;
+  display: inline-block;
+  animation: pulseSparkle 3s ease-in-out infinite;
+}
+
+.sparkle.gold {
+  color: var(--gold-light);
+  text-shadow: 0 0 8px var(--gold-glow);
+}
+
+.sparkle.cream {
+  color: var(--cream-primary);
+  text-shadow: 0 0 8px rgba(245, 239, 230, 0.6);
+}
+
+.sparkle-sm {
+  font-size: 0.85rem;
+}
+
+.sparkle-md {
+  font-size: 1.25rem;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3) rotate(20deg);
+    opacity: 1;
+  }
+}
+
+.bubble {
+  border-radius: 50%;
+  border: 1.5px solid var(--cream-primary);
+  background: rgba(245, 239, 230, 0.1);
+  display: inline-block;
+}
+
+.bubble-xs {
+  width: 7px;
+  height: 7px;
+}
+
+.bubble-sm {
+  width: 11px;
+  height: 11px;
+}
+
+.bubble-md {
+  width: 17px;
+  height: 17px;
+}
+
+/* CONTENIDO CENTRAL DE LA TARJETA */
+.card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Subtítulo Serif Clásico: "Brindemos por el cumple de" */
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3.8vw, 1.45rem);
+  color: var(--cream-primary);
+  letter-spacing: 0.02em;
+  margin-top: 0.35rem;
+  margin-bottom: 0.15rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Título Display Masivo: "LUCHITO" */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 12vw, 4.4rem);
+  color: var(--cream-primary);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  text-shadow: 
+    0 4px 0 #000000,
+    0 6px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* ILUSTRACIÓN CERVECERA INTERACTIVA */
+.beer-illustration-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0.3rem auto 0.6rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 12px;
+  transition: transform var(--transition-fast);
+}
+
+.beer-illustration-container:hover {
+  transform: scale(1.03);
+}
+
+.beer-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+/* Animación de choque / brindis */
+.beer-illustration-container.clinking .mug-left {
+  animation: clinkLeft 0.5s ease;
+}
+
+.beer-illustration-container.clinking .mug-right {
+  animation: clinkRight 0.5s ease;
+}
+
+.beer-illustration-container.clinking .clink-sparkles {
+  animation: clinkSparkle 0.5s ease;
+}
+
+@keyframes clinkLeft {
+  0% { transform: translate(150px, 185px) rotate(13deg) translate(-150px, -185px); }
+  35% { transform: translate(150px, 185px) rotate(22deg) translate(-150px, -185px) translateX(12px); }
+  60% { transform: translate(150px, 185px) rotate(11deg) translate(-150px, -185px); }
+  100% { transform: translate(150px, 185px) rotate(13deg) translate(-150px, -185px); }
+}
+
+@keyframes clinkRight {
+  0% { transform: translate(270px, 185px) rotate(-13deg) translate(-270px, -185px); }
+  35% { transform: translate(270px, 185px) rotate(-22deg) translate(-270px, -185px) translateX(-12px); }
+  60% { transform: translate(270px, 185px) rotate(-11deg) translate(-270px, -185px); }
+  100% { transform: translate(270px, 185px) rotate(-13deg) translate(-270px, -185px); }
+}
+
+@keyframes clinkSparkle {
+  0% { transform: scale(0.6); opacity: 0; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.toast-hint {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  margin-top: -6px;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   BLOQUE DE FECHA Y HORA (GRID 2x2 FIEL AL POSTER)
+   ========================================================================== */
+.datetime-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 380px;
+  margin: 0.5rem auto 1.1rem;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cajas doradas rectangulares [MIERCOLES] y [NOVIEMBRE] */
+.date-gold-badge {
+  background: var(--gold-primary);
+  background-image: var(--gold-gradient);
+  color: var(--cream-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 4vw, 1.55rem);
+  letter-spacing: 0.05em;
+  padding: 0.4rem 1.1rem;
+  border-radius: 6px;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 175px;
+  text-align: center;
+}
+
+/* Hora: "4:00 PM" en serif elegante */
+.time-display {
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 4.5vw, 1.85rem);
+  font-weight: 600;
+  color: var(--cream-primary);
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Día: "18" en número display gigante */
+.day-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 8vw, 3.4rem);
+  line-height: 1;
+  color: var(--cream-primary);
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Dirección visible */
+.venue-address-block {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.address-text {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 3vw, 1.15rem);
+  color: var(--cream-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Botón estilo píldora dorada con doble borde de la imagen */
+.hero-cta-wrapper {
+  margin-bottom: 0.9rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: var(--gold-primary);
+  background-image: var(--gold-gradient);
+  color: var(--cream-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3.2vw, 1.18rem);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  padding: 0.65rem 1.6rem;
+  border-radius: 9999px;
+  /* Doble borde crema característico del póster */
+  outline: 2px solid var(--cream-primary);
+  outline-offset: -5px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 4px 15px var(--gold-glow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-hero-pill:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.7),
+    0 6px 25px rgba(181, 148, 54, 0.6);
+  color: var(--white);
+}
+
+.btn-hero-pill:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Mensaje final de la tarjeta */
+.hero-farewell {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.55rem);
+  color: var(--cream-primary);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   6. CONTADOR REGRESIVO
+   ========================================================================== */
+.countdown-section {
+  width: 100%;
+  text-align: center;
+}
+
+.section-container {
+  width: 100%;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+  letter-spacing: 0.08em;
+  color: var(--cream-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.title-sparkle {
+  color: var(--gold-light);
+  font-size: 1.1rem;
+}
+
+.section-desc {
+  color: var(--cream-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.countdown-box {
+  background: rgba(24, 24, 24, 0.85);
+  border: 1px solid rgba(166, 137, 50, 0.35);
+  border-radius: 12px;
+  padding: 0.9rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold-gradient);
+}
+
+.count-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5.5vw, 2.3rem);
+  color: var(--gold-light);
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(181, 148, 54, 0.3);
+}
+
+.count-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cream-muted);
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   7. UBICACIÓN Y MAPA
+   ========================================================================== */
+.glass-panel {
+  background: rgba(21, 21, 21, 0.92);
+  border: 1px solid rgba(245, 239, 230, 0.12);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: relative;
+}
+
+.location-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.location-badge, .rsvp-badge {
+  display: inline-block;
+  background: rgba(166, 137, 50, 0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(166, 137, 50, 0.4);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.65rem;
+}
+
+.location-title, .rsvp-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  color: var(--cream-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.location-address {
+  font-size: 1rem;
+  color: var(--cream-primary);
+  line-height: 1.4;
+}
+
+.location-address strong {
+  color: var(--gold-light);
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-google-maps {
+  background: var(--gold-primary);
+  background-image: var(--gold-gradient);
+  color: var(--cream-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(166, 137, 50, 0.3);
+}
+
+.btn-google-maps:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(181, 148, 54, 0.5);
+  color: var(--white);
+}
+
+.btn-copy-address {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 239, 230, 0.2);
+  color: var(--cream-primary);
+}
+
+.btn-copy-address:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.map-embed-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 239, 230, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  filter: contrast(105%) brightness(95%);
+}
+
+/* ==========================================================================
+   8. FORMULARIO RSVP DE CONFIRMACIÓN
+   ========================================================================== */
+.rsvp-header {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.rsvp-subtitle {
+  color: var(--cream-muted);
+  font-size: 0.95rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cream-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.required-star {
+  color: #E57373;
+  font-size: 1.1rem;
+}
+
+.optional-tag {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid rgba(245, 239, 230, 0.15);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  color: var(--cream-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+  background: #252525;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: #7A746B;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field-error {
+  display: none;
+  color: #FF8A80;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* TARJETAS SELECTORAS "¿ASISTIRÁS?" */
+.attendance-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.attendance-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(245, 239, 230, 0.15);
+  border-radius: 12px;
+  padding: 0.85rem 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.attendance-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(181, 148, 54, 0.4);
+}
+
+.attendance-card.active {
+  background: rgba(166, 137, 50, 0.12);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 16px rgba(181, 148, 54, 0.2);
+}
+
+.card-radio-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition-fast);
+}
+
+.attendance-card.active .card-radio-icon {
+  background: var(--gold-light);
+  color: #121212;
+  border-color: var(--gold-light);
+}
+
+.card-radio-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-radio-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cream-primary);
+  line-height: 1.2;
+}
+
+.card-radio-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+/* SELECTOR NUMÉRICO INTERACTIVO (1 AL 5) */
+.counter-stepper-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-input);
+  border: 1.5px solid rgba(245, 239, 230, 0.15);
+  border-radius: 12px;
+  padding: 0.4rem 0.6rem;
+  width: fit-content;
+}
+
+.stepper-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cream-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background: var(--gold-primary);
+  color: var(--cream-primary);
+}
+
+.stepper-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.stepper-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0 0.5rem;
+}
+
+.stepper-input {
+  width: 2.2ch;
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold-light);
+  text-align: center;
+  outline: none;
+}
+
+.stepper-unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cream-primary);
+}
+
+.stepper-hint {
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  margin-top: 0.2rem;
+}
+
+/* BOTÓN DE ENVÍO PRINCIPAL */
+.form-submit-wrapper {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.btn-submit-rsvp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: var(--gold-primary);
+  background-image: var(--gold-gradient);
+  color: var(--cream-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+  letter-spacing: 0.06em;
+  padding: 0.9rem 1.8rem;
+  border-radius: 9999px;
+  /* Doble borde crema temático */
+  outline: 2px solid var(--cream-primary);
+  outline-offset: -5px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.7),
+    0 4px 20px var(--gold-glow);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-submit-rsvp:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 
+    0 14px 32px rgba(0, 0, 0, 0.8),
+    0 6px 30px rgba(181, 148, 54, 0.6);
+  color: var(--white);
+}
+
+.btn-submit-rsvp:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-submit-rsvp:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+/* Spinner de carga */
+.btn-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(245, 239, 230, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--cream-primary);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn-submit-rsvp.loading .btn-spinner {
+  display: inline-block;
+}
+
+.btn-submit-rsvp.loading .btn-submit-icon {
+  display: none;
+}
+
+/* Mensajes de feedback del formulario */
+.form-feedback {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-feedback.error {
+  background: rgba(239, 83, 80, 0.15);
+  border: 1px solid rgba(239, 83, 80, 0.4);
+  color: #FF8A80;
+}
+
+.form-feedback.success {
+  background: rgba(102, 187, 106, 0.15);
+  border: 1px solid rgba(102, 187, 106, 0.4);
+  color: #A5D6A7;
+}
+
+/* ==========================================================================
+   9. MODAL DE CONFIRMACIÓN EXITOSA CON CONFETI
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.confetti-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 101;
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 102;
+  width: 100%;
+  max-width: 460px;
+  background: #181818;
+  background-image: radial-gradient(circle at 50% 10%, #252320 0%, #151413 70%, #0d0d0d 100%);
+  border: 2px solid var(--gold-light);
+  border-radius: 20px;
+  padding: 2.2rem 1.8rem 1.8rem;
+  text-align: center;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(181, 148, 54, 0.35);
+  animation: modalScaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--cream-primary);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-beer-icon {
+  font-size: 3.2rem;
+  margin-bottom: 0.6rem;
+  animation: bounceBeer 1s ease infinite alternate;
+}
+
+@keyframes bounceBeer {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  color: var(--cream-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+
+.modal-message {
+  font-size: 1rem;
+  color: var(--cream-muted);
+  line-height: 1.45;
+  margin-bottom: 1.4rem;
+}
+
+.modal-event-summary {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed rgba(181, 148, 54, 0.4);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+  font-size: 0.88rem;
+  color: var(--cream-primary);
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn-modal-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-calendar-google {
+  background: var(--gold-primary);
+  background-image: var(--gold-gradient);
+  color: var(--cream-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-calendar-google:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(181, 148, 54, 0.4);
+  color: var(--white);
+}
+
+.btn-calendar-ics {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(245, 239, 230, 0.2);
+  color: var(--cream-primary);
+}
+
+.btn-calendar-ics:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--cream-primary);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-modal-done {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  transition: var(--transition-fast);
+}
+
+.btn-modal-done:hover {
+  color: var(--cream-primary);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   10. TOAST DE NOTIFICACIÓN
+   ========================================================================== */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #222222;
+  border: 1px solid var(--gold-light);
+  color: var(--cream-primary);
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   11. PIE DE PÁGINA
+   ========================================================================== */
+.footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid rgba(245, 239, 230, 0.08);
+  background: rgba(15, 15, 15, 0.95);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-top-link {
+  color: var(--cream-primary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: inline-block;
+  opacity: 0.7;
+  transition: var(--transition-fast);
+}
+
+.footer-top-link:hover {
+  opacity: 1;
+  color: var(--gold-light);
+}
+
+/* ==========================================================================
+   12. RESPONSIVE Y ACCESIBILIDAD
+   ========================================================================== */
+@media (max-width: 480px) {
+  .invitation-card {
+    padding: 30px 16px 26px;
+  }
+
+  .vintage-frame {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .corner-svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .line-top, .line-bottom {
+    left: 36px;
+    right: 36px;
+  }
+
+  .line-left, .line-right {
+    top: 36px;
+    bottom: 36px;
+  }
+
+  .datetime-grid {
+    gap: 0.5rem 0.75rem;
+  }
+
+  .date-gold-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .attendance-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modo accesibilidad para reducir movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .float-bubble {
+    display: none;
+  }
+}
+
+/* Utilidad oculta para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
