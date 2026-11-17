@@ -29,7 +29,7 @@ const EVENT_CONFIG = {
   gcalDates: "20261118T210000Z/20261119T050000Z", // En formato UTC (16:00 UTC-5 = 21:00 UTC)
   address: "C. Bernardo de O'Higgins 125, Pueblo Libre",
   mapsUrl: "https://maps.app.goo.gl/nE8yuqM2n8inwzYq9",
-  description: "¡Acompáñanos a celebrar el cumpleaños de Luchito! Brindis, cerveza helada, buena música y los mejores amigos. 🍻"
+  description: "¡Acompáñanos a celebrar el cumpleaños de Luchito! Brindis, cerveza helada, buena música y los mejores amigos. "
 };
 
 // ==========================================================================
@@ -95,7 +95,7 @@ function initCountdown() {
       minutesEl.textContent = "00";
       secondsEl.textContent = "00";
       const descEl = document.querySelector(".section-desc");
-      if (descEl) descEl.textContent = "¡La fiesta de Luchito ya comenzó! 🍻 ¡Salud!";
+      if (descEl) descEl.textContent = "¡La fiesta de Luchito ya comenzó!  ¡Salud!";
       return;
     }
 
@@ -190,7 +190,7 @@ function initBeerToastInteraction() {
   if (soundNavBtn) {
     soundNavBtn.addEventListener("click", () => {
       triggerClinkAnimation();
-      showToast("¡Salud por Luchito! 🍻");
+      showToast("¡Salud por Luchito! ");
     });
   }
 }
@@ -307,7 +307,7 @@ function initRsvpForm() {
     // Estado visual de carga
     btnSubmitRsvp.disabled = true;
     btnSubmitRsvp.classList.add("loading");
-    btnSubmitLabel.textContent = "Enviando confirmación... 🍺";
+    btnSubmitLabel.textContent = "Enviando confirmación... ";
     formFeedback.style.display = "none";
 
     try {
@@ -373,7 +373,7 @@ function openSuccessModal(data) {
 
   // Personalización según si asiste o no
   if (data.asistencia === "SI") {
-    modalTitle.textContent = "¡CONFIRMACIÓN RECIBIDA! 🎉";
+    modalTitle.textContent = "¡CONFIRMACIÓN RECIBIDA! ";
     modalMessage.innerHTML = `¡Genial, <strong>${escapeHtml(data.nombre)}</strong>! Luchito te espera con una jarra bien helada este <strong>miércoles 18 de noviembre a las 4:00 PM</strong> (${data.cantidadPersonas} ${data.cantidadPersonas === 1 ? "lugar reservado" : "lugares reservados"}).`;
     
     // Configurar enlace de Google Calendar
@@ -382,16 +382,16 @@ function openSuccessModal(data) {
     btnGoogleCalendar.style.display = "flex";
 
     // Mensaje de WhatsApp
-    const waText = `¡Hola Luchito! 👋 Ya confirmé mi asistencia a tu cumple para el miércoles 18 de nov a las 4:00 PM 🍻 (${data.cantidadPersonas} ${data.cantidadPersonas === 1 ? "persona" : "personas"}). ¡Nos vemos pronto!`;
-    btnWhatsAppShare.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
+    const waText = `¡Hola Luchito!  Ya confirmé mi asistencia a tu cumple para el miércoles 18 de nov a las 4:00 PM  (${data.cantidadPersonas} ${data.cantidadPersonas === 1 ? "persona" : "personas"}). ¡Nos vemos pronto!`;
+    btnWhatsAppShare.href = `https://api.whatsapp.com/send?phone=51985833463&text=${encodeURIComponent(waText)}`;
 
   } else {
-    modalTitle.textContent = "¡GRACIAS POR AVISAR! 💛";
+    modalTitle.textContent = "¡GRACIAS POR AVISAR! ";
     modalMessage.innerHTML = `¡Gracias por avisar, <strong>${escapeHtml(data.nombre)}</strong>! Se te extrañará en el brindis, pero brindaremos por ti a la distancia.`;
     btnGoogleCalendar.style.display = "none";
 
-    const waText = `¡Hola Luchito! Te escribo para mandarte un fuerte abrazo por tu cumple. No podré acompañarte este 18 de nov pero brindaré por ti 🥂. ¡Que lo pases genial!`;
-    btnWhatsAppShare.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
+    const waText = `¡Hola Luchito! Te escribo para mandarte un fuerte abrazo por tu cumple. No podré acompañarte este 18 de nov pero brindaré por ti . ¡Que lo pases genial!`;
+    btnWhatsAppShare.href = `https://api.whatsapp.com/send?phone=51985833463&text=${encodeURIComponent(waText)}`;
   }
 
   // Mostrar modal y disparar confeti dorado y cervecero
